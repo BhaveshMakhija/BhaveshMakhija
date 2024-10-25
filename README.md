@@ -1,12 +1,12 @@
 <p align="center">
   <img src="https://i.pinimg.com/originals/81/17/8b/81178b47a8598f0c81c4799f2cdd4057.gif" style="height:480px; width:700px;">
 </p>
-<h1 align="center">Hi 👋, I'm Bhavesh Makhija From India </h1>
+<h1 align="center">Hi 👋, I'm Bhavesh Makhija </h1>
 <!-- <h3 align="center">A passionate frontend developer from India</h3> -->
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=BhaveshMakhija&label=Profile%20views&color=0e75b6&style=flat" alt="BhaveshMakhija" /> </p>
 
-###
+
 <!-- <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=gautamop01" alt="gautamop01" /></a> </p> -->
 [![trophy](https://github-profile-trophy.vercel.app/?username=BhaveshMakhija)](https://github.com/ryo-ma/github-profile-trophy)
 
