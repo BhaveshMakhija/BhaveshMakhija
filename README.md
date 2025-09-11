@@ -13,8 +13,7 @@
 <img align="right" alt="Coding"  style="border-radius:1rem;width:30vw;" src="https://i.pinimg.com/originals/18/a4/94/18a4949fc9c8067172d3b96e302e7097.gif">
 
 
-- 🌱 I’m currently Working on **my skills in DSA and Competitive Programming**
-- 🧐 Learning about **Web Dev** and a bit of **ML.**
+- 🌱 I’m currently Working on **my skills in AI/ML Along with GenAI and LLM Implementation at Scale.**
 - ⚡ Fun fact **I LOVE TO PLAYING COMPETITIVE GAMES,SKETCHING,TRAVELLING**
 
 ###
