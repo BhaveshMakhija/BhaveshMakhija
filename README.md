@@ -8,7 +8,7 @@
 
 
 <!-- <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=gautamop01" alt="gautamop01" /></a> </p> -->
-[![trophy](https://github-profile-trophy.vercel.app/?username=BhaveshMakhija)](https://github.com/ryo-ma/github-profile-trophy)
+
 
 <img align="right" alt="Coding"  style="border-radius:1rem;width:30vw;" src="https://i.pinimg.com/originals/18/a4/94/18a4949fc9c8067172d3b96e302e7097.gif">
 
@@ -45,10 +45,6 @@
 </div>
 
 ###
-
-<p align="center"><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=BhaveshMakhija&show_icons=true&locale=en&layout=compact" alt="BhaveshMakhija" /></p>
-
-<p align="center">&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=BhaveshMakhija&show_icons=true&locale=en" alt="BhaveshMakhija" /></p>
 
 <p align="center"><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=BhaveshMakhija&" alt="BhaveshMakhija" /></p>
 
