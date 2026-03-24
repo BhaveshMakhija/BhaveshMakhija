@@ -1,29 +1,11 @@
 <div align="center">
 
 <!-- ═══════════════════════════════════════════════════════════ -->
-<!--                    CUSTOM SVG HEADER                       -->
+<!--           HEADER SVG — native SVG animate only             -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" width="100%">
   <defs>
-    <style>
-      @keyframes blink    { 0%,100%{opacity:1} 50%{opacity:0} }
-      @keyframes fadeUp   { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-      @keyframes pulse    { 0%,100%{r:3;opacity:0.35} 50%{r:5;opacity:1} }
-      @keyframes scanline { 0%{transform:translateY(-8px)} 100%{transform:translateY(288px)} }
-
-      .t1{animation:fadeUp .5s ease .05s both}
-      .t2{animation:fadeUp .5s ease .35s both}
-      .t3{animation:fadeUp .5s ease .55s both}
-      .t4{animation:fadeUp .5s ease .75s both}
-      .t5{animation:fadeUp .5s ease .95s both}
-      .t6{animation:fadeUp .5s ease 1.2s both}
-      .cursor{animation:blink 1s step-end 1.5s infinite}
-      .n1{animation:pulse 2.4s ease-in-out infinite}
-      .n2{animation:pulse 2.4s ease-in-out .8s infinite}
-      .n3{animation:pulse 2.4s ease-in-out 1.6s infinite}
-      .scan{animation:scanline 5s linear infinite;opacity:.025}
-    </style>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#0D1117"/>
       <stop offset="100%" stop-color="#0f0a20"/>
@@ -46,11 +28,16 @@
     </pattern>
   </defs>
 
+  <!-- Background -->
   <rect width="900" height="280" fill="url(#bg)"/>
   <rect width="900" height="280" fill="url(#dots)" opacity=".06"/>
-  <rect class="scan" x="0" y="0" width="900" height="8" fill="#a78bfa"/>
 
-  <!-- Left neural net -->
+  <!-- Scanline sweep -->
+  <rect x="0" y="0" width="900" height="8" fill="#a78bfa" opacity=".04">
+    <animateTransform attributeName="transform" type="translate" from="0,0" to="0,290" dur="5s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- LEFT neural net — lines -->
   <g filter="url(#glow)" opacity=".65">
     <line x1="58" y1="82"  x2="108" y2="128" stroke="#7c3aed" stroke-width=".8" stroke-dasharray="4 3"/>
     <line x1="58" y1="158" x2="108" y2="128" stroke="#7c3aed" stroke-width=".8" stroke-dasharray="4 3"/>
@@ -58,16 +45,42 @@
     <line x1="58" y1="198" x2="108" y2="162" stroke="#7c3aed" stroke-width=".8" stroke-dasharray="4 3"/>
     <line x1="108" y1="128" x2="152" y2="145" stroke="#a78bfa" stroke-width="1"/>
     <line x1="108" y1="162" x2="152" y2="145" stroke="#a78bfa" stroke-width="1"/>
-    <circle class="n1" cx="58"  cy="82"  fill="#7c3aed"/>
-    <circle class="n2" cx="58"  cy="122" fill="#7c3aed"/>
-    <circle class="n3" cx="58"  cy="158" fill="#7c3aed"/>
-    <circle class="n1" cx="58"  cy="198" fill="#7c3aed"/>
-    <circle class="n2" cx="108" cy="128" fill="#a78bfa"/>
-    <circle class="n3" cx="108" cy="162" fill="#a78bfa"/>
-    <circle class="n1" cx="152" cy="145" r="4" fill="#c4b5fd"/>
+
+    <!-- Pulsing nodes — layer 1 -->
+    <circle cx="58" cy="82" fill="#7c3aed">
+      <animate attributeName="r" values="3;5;3" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="58" cy="122" fill="#7c3aed">
+      <animate attributeName="r" values="3;5;3" dur="2.4s" begin="0.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="58" cy="158" fill="#7c3aed">
+      <animate attributeName="r" values="3;5;3" dur="2.4s" begin="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" begin="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="58" cy="198" fill="#7c3aed">
+      <animate attributeName="r" values="3;5;3" dur="2.4s" begin="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" begin="0.4s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Layer 2 -->
+    <circle cx="108" cy="128" fill="#a78bfa">
+      <animate attributeName="r" values="3;5;3" dur="2.4s" begin="1.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" begin="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="108" cy="162" fill="#a78bfa">
+      <animate attributeName="r" values="3;5;3" dur="2.4s" begin="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" begin="0.3s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Output node -->
+    <circle cx="152" cy="145" r="4" fill="#c4b5fd">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
   </g>
 
-  <!-- Right neural net -->
+  <!-- RIGHT neural net — lines -->
   <g filter="url(#glow)" opacity=".65">
     <line x1="842" y1="82"  x2="792" y2="128" stroke="#7c3aed" stroke-width=".8" stroke-dasharray="4 3"/>
     <line x1="842" y1="158" x2="792" y2="128" stroke="#7c3aed" stroke-width=".8" stroke-dasharray="4 3"/>
@@ -75,69 +88,89 @@
     <line x1="842" y1="198" x2="792" y2="162" stroke="#7c3aed" stroke-width=".8" stroke-dasharray="4 3"/>
     <line x1="792" y1="128" x2="748" y2="145" stroke="#a78bfa" stroke-width="1"/>
     <line x1="792" y1="162" x2="748" y2="145" stroke="#a78bfa" stroke-width="1"/>
-    <circle class="n3" cx="842" cy="82"  fill="#7c3aed"/>
-    <circle class="n1" cx="842" cy="122" fill="#7c3aed"/>
-    <circle class="n2" cx="842" cy="158" fill="#7c3aed"/>
-    <circle class="n3" cx="842" cy="198" fill="#7c3aed"/>
-    <circle class="n1" cx="792" cy="128" fill="#a78bfa"/>
-    <circle class="n2" cx="792" cy="162" fill="#a78bfa"/>
-    <circle class="n3" cx="748" cy="145" r="4" fill="#c4b5fd"/>
+
+    <circle cx="842" cy="82" fill="#7c3aed">
+      <animate attributeName="r" values="3;5;3" dur="2.4s" begin="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" begin="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="842" cy="122" fill="#7c3aed">
+      <animate attributeName="r" values="3;5;3" dur="2.4s" begin="0.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" begin="0.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="842" cy="158" fill="#7c3aed">
+      <animate attributeName="r" values="3;5;3" dur="2.4s" begin="1.0s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" begin="1.0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="842" cy="198" fill="#7c3aed">
+      <animate attributeName="r" values="3;5;3" dur="2.4s" begin="2.0s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" begin="2.0s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="792" cy="128" fill="#a78bfa">
+      <animate attributeName="r" values="3;5;3" dur="2.4s" begin="0.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" begin="0.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="792" cy="162" fill="#a78bfa">
+      <animate attributeName="r" values="3;5;3" dur="2.4s" begin="1.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.4s" begin="1.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="748" cy="145" r="4" fill="#c4b5fd">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" begin="0.9s" repeatCount="indefinite"/>
+    </circle>
   </g>
 
-  <!-- Horizontal glow divider -->
+  <!-- Glow divider line -->
   <rect x="0" y="139" width="900" height="1" fill="url(#gline)" opacity=".45"/>
 
   <!-- Terminal prompt -->
-  <g class="t1">
-    <text x="450" y="72" font-family="'JetBrains Mono',monospace" font-size="12" fill="#4a3a6e" text-anchor="middle">▸  initializing  profile.py ...</text>
-  </g>
+  <text x="450" y="72" font-family="'JetBrains Mono',monospace" font-size="12" fill="#4a3a6e" text-anchor="middle">
+    ▸  initializing  profile.py ...
+    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.1s" fill="freeze"/>
+  </text>
 
   <!-- Name -->
-  <g class="t2" filter="url(#sglow)">
-    <text x="450" y="128" font-family="'JetBrains Mono',monospace" font-size="44" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="2">Bhavesh Makhija</text>
-  </g>
+  <text x="450" y="128" font-family="'JetBrains Mono',monospace" font-size="44" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="2" filter="url(#sglow)">
+    Bhavesh Makhija
+    <animate attributeName="opacity" values="0;1" dur="0.6s" begin="0.4s" fill="freeze"/>
+  </text>
 
   <!-- Underline accent -->
-  <g class="t3">
-    <rect x="285" y="136" width="330" height="2" rx="1" fill="url(#gline)"/>
-  </g>
+  <rect x="285" y="136" width="330" height="2" rx="1" fill="url(#gline)">
+    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.6s" fill="freeze"/>
+  </rect>
 
   <!-- Role -->
-  <g class="t4">
-    <text x="450" y="166" font-family="'JetBrains Mono',monospace" font-size="14.5" fill="#a78bfa" text-anchor="middle" letter-spacing="1">AI/ML Engineer  ·  RAG Systems  ·  Full-Stack GenAI</text>
-  </g>
+  <text x="450" y="166" font-family="'JetBrains Mono',monospace" font-size="14.5" fill="#a78bfa" text-anchor="middle" letter-spacing="1">
+    AI/ML Engineer  ·  RAG Systems  ·  Full-Stack GenAI
+    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.8s" fill="freeze"/>
+  </text>
 
   <!-- Pill tags -->
-  <g class="t5">
+  <g>
+    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1.0s" fill="freeze"/>
     <rect x="220" y="184" width="88"  height="21" rx="10.5" fill="#130a2e" stroke="#5b21b6" stroke-width=".8"/>
     <text x="264" y="199" font-family="monospace" font-size="10.5" fill="#c4b5fd" text-anchor="middle">LangChain</text>
-
     <rect x="316" y="184" width="62"  height="21" rx="10.5" fill="#130a2e" stroke="#5b21b6" stroke-width=".8"/>
     <text x="347" y="199" font-family="monospace" font-size="10.5" fill="#c4b5fd" text-anchor="middle">FastAPI</text>
-
     <rect x="386" y="184" width="50"  height="21" rx="10.5" fill="#130a2e" stroke="#5b21b6" stroke-width=".8"/>
     <text x="411" y="199" font-family="monospace" font-size="10.5" fill="#c4b5fd" text-anchor="middle">FAISS</text>
-
     <rect x="444" y="184" width="56"  height="21" rx="10.5" fill="#130a2e" stroke="#5b21b6" stroke-width=".8"/>
     <text x="472" y="199" font-family="monospace" font-size="10.5" fill="#c4b5fd" text-anchor="middle">RAGAS</text>
-
     <rect x="508" y="184" width="60"  height="21" rx="10.5" fill="#130a2e" stroke="#5b21b6" stroke-width=".8"/>
     <text x="538" y="199" font-family="monospace" font-size="10.5" fill="#c4b5fd" text-anchor="middle">Ollama</text>
-
     <rect x="576" y="184" width="90"  height="21" rx="10.5" fill="#130a2e" stroke="#5b21b6" stroke-width=".8"/>
     <text x="621" y="199" font-family="monospace" font-size="10.5" fill="#c4b5fd" text-anchor="middle">HuggingFace</text>
   </g>
 
-  <!-- Status bar -->
-  <g class="t6">
-    <text x="438" y="248" font-family="'JetBrains Mono',monospace" font-size="11.5" fill="#3d3160" text-anchor="middle">Pune, Maharashtra  ·  Open to AI/ML Engineering roles</text>
-    <text class="cursor" x="680" y="248" font-family="monospace" font-size="13" fill="#7c3aed">▋</text>
-  </g>
+  <!-- Status + blinking cursor -->
+  <text x="438" y="248" font-family="'JetBrains Mono',monospace" font-size="11.5" fill="#3d3160" text-anchor="middle">
+    Pune, Maharashtra  ·  Open to AI/ML Engineering roles
+    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1.3s" fill="freeze"/>
+  </text>
+  <text x="672" y="248" font-family="monospace" font-size="13" fill="#7c3aed">
+    ▋
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </text>
 </svg>
-
-<!-- ═══════════════════════════════════════════════════════════ -->
-<!--                   SOCIAL BADGES                            -->
-<!-- ═══════════════════════════════════════════════════════════ -->
 
 <br/>
 
@@ -150,29 +183,12 @@
 
 ---
 
-<!-- ═══════════════════════════════════════════════════════════ -->
-<!--                  TERMINAL ABOUT BLOCK                      -->
-<!-- ═══════════════════════════════════════════════════════════ -->
-
 ## 🧠 About Me
 
 <div align="center">
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 212" width="96%">
   <defs>
-    <style>
-      @keyframes typeIn { from{clip-path:inset(0 100% 0 0)} to{clip-path:inset(0 0% 0 0)} }
-      @keyframes blink2 { 0%,100%{opacity:1} 50%{opacity:0} }
-      .l1{animation:typeIn .45s steps(50) .1s both}
-      .l2{animation:typeIn .45s steps(50) .5s both}
-      .l3{animation:typeIn .45s steps(50) .9s both}
-      .l4{animation:typeIn .45s steps(50) 1.3s both}
-      .l5{animation:typeIn .45s steps(50) 1.7s both}
-      .l6{animation:typeIn .45s steps(50) 2.1s both}
-      .l7{animation:typeIn .45s steps(50) 2.5s both}
-      .l8{animation:typeIn .45s steps(50) 2.9s both}
-      .cur{animation:blink2 1s step-end 3s infinite}
-    </style>
     <linearGradient id="tbg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#0d1117"/>
       <stop offset="100%" stop-color="#090d14"/>
@@ -204,52 +220,78 @@
     <text x="24" y="194">9</text>
   </g>
 
-  <!-- Cursor line highlight -->
+  <!-- Active line highlight -->
   <rect x="44" y="181" width="772" height="16" fill="#a78bfa" opacity=".05" rx="2"/>
 
-  <!-- Code -->
+  <!-- Code lines — fade in sequentially -->
   <g font-family="'JetBrains Mono','Courier New',monospace" font-size="12.5">
-    <g class="l1">
+
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.1s" fill="freeze"/>
       <text x="48" y="58" fill="#c4b5fd">bhavesh</text>
-      <text x="130" y="58" fill="#94a3b8"> = {</text>
+      <text x="132" y="58" fill="#94a3b8"> = {</text>
     </g>
-    <g class="l2">
+
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.5s" fill="freeze"/>
       <text x="48" y="75" fill="#64748b">    "role"      :</text>
-      <text x="205" y="75" fill="#86efac"> "AI/ML Engineer · Full-Stack GenAI Developer"</text>
-      <text x="620" y="75" fill="#64748b">,</text>
+      <text x="206" y="75" fill="#86efac"> "AI/ML Engineer · Full-Stack GenAI Developer"</text>
+      <text x="622" y="75" fill="#64748b">,</text>
     </g>
-    <g class="l3">
+
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.9s" fill="freeze"/>
       <text x="48" y="92" fill="#64748b">    "location"  :</text>
-      <text x="205" y="92" fill="#86efac"> "Pune, Maharashtra"</text>
-      <text x="362" y="92" fill="#64748b">,</text>
+      <text x="206" y="92" fill="#86efac"> "Pune, Maharashtra"</text>
+      <text x="364" y="92" fill="#64748b">,</text>
     </g>
-    <g class="l4">
+
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.3s" fill="freeze"/>
       <text x="48" y="109" fill="#64748b">    "education" :</text>
-      <text x="205" y="109" fill="#86efac"> "B.E. AI &amp; Data Science — CGPA 7.92/10"</text>
-      <text x="580" y="109" fill="#64748b">,</text>
+      <text x="206" y="109" fill="#86efac"> "B.E. AI &amp; Data Science — CGPA 7.92/10"</text>
+      <text x="582" y="109" fill="#64748b">,</text>
     </g>
-    <g class="l5">
+
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.7s" fill="freeze"/>
       <text x="48" y="126" fill="#64748b">    "focus"     :</text>
-      <text x="205" y="126" fill="#fbbf24"> ["RAG", "LLM Eval", "Vector Search", "Doc Intelligence"]</text>
-      <text x="695" y="126" fill="#64748b">,</text>
+      <text x="206" y="126" fill="#fbbf24"> ["RAG", "LLM Eval", "Vector Search", "Doc Intelligence"]</text>
+      <text x="697" y="126" fill="#64748b">,</text>
     </g>
-    <g class="l6">
+
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="2.1s" fill="freeze"/>
       <text x="48" y="143" fill="#64748b">    "stack"     :</text>
-      <text x="205" y="143" fill="#fbbf24"> ["Python", "FastAPI", "LangChain", "FAISS", "React"]</text>
-      <text x="670" y="143" fill="#64748b">,</text>
+      <text x="206" y="143" fill="#fbbf24"> ["Python", "FastAPI", "LangChain", "FAISS", "React"]</text>
+      <text x="672" y="143" fill="#64748b">,</text>
     </g>
-    <g class="l7">
+
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="2.5s" fill="freeze"/>
       <text x="48" y="160" fill="#64748b">    "currently" :</text>
-      <text x="205" y="160" fill="#86efac"> "Production AI pipelines &amp; LLM applications"</text>
-      <text x="615" y="160" fill="#64748b">,</text>
+      <text x="206" y="160" fill="#86efac"> "Production AI pipelines &amp; LLM applications"</text>
+      <text x="617" y="160" fill="#64748b">,</text>
     </g>
-    <g class="l8">
+
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="2.9s" fill="freeze"/>
       <text x="48" y="177" fill="#64748b">    "open_to"   :</text>
-      <text x="205" y="177" fill="#86efac"> "AI/ML · GenAI · NLP · RAG Systems roles"</text>
-      <text x="586" y="177" fill="#64748b">,</text>
+      <text x="206" y="177" fill="#86efac"> "AI/ML · GenAI · NLP · RAG Systems roles"</text>
+      <text x="588" y="177" fill="#64748b">,</text>
     </g>
-    <text x="48" y="194" fill="#94a3b8">}</text>
-    <text class="cur" x="66" y="194" fill="#7c3aed" font-size="14">▋</text>
+
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1" dur="0.3s" begin="3.2s" fill="freeze"/>
+      <text x="48" y="194" fill="#94a3b8">}</text>
+    </g>
+
+    <!-- Blinking cursor -->
+    <text x="66" y="194" font-size="14" fill="#7c3aed">
+      ▋
+      <animate attributeName="opacity" values="1;0;1" dur="1s" begin="3.3s" repeatCount="indefinite"/>
+    </text>
+
   </g>
 </svg>
 
@@ -329,9 +371,7 @@
 
 <div align="center">
 
-<br/>
-
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 60" width="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 64" width="100%">
   <defs>
     <linearGradient id="fg" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%"   stop-color="#7c3aed" stop-opacity="0"/>
@@ -339,15 +379,14 @@
       <stop offset="70%"  stop-color="#a78bfa" stop-opacity="1"/>
       <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
     </linearGradient>
-    <style>
-      @keyframes blink3{0%,100%{opacity:1}50%{opacity:0}}
-      .fc{animation:blink3 1.2s step-end infinite}
-    </style>
   </defs>
-  <rect x="0" y="28" width="900" height="1" fill="url(#fg)" opacity=".4"/>
+  <rect x="0" y="30" width="900" height="1" fill="url(#fg)" opacity=".4"/>
   <text x="450" y="22" font-family="'JetBrains Mono',monospace" font-size="12" fill="#4a3a6e" text-anchor="middle">Open to full-time opportunities · AI/ML · GenAI · RAG Systems</text>
-  <text x="450" y="50" font-family="'JetBrains Mono',monospace" font-size="11" fill="#2e2450" text-anchor="middle">bhavesh60000@gmail.com  ·  linkedin.com/in/bhavesh-makhija</text>
-  <text class="fc" x="750" y="50" font-family="monospace" font-size="12" fill="#7c3aed">▋</text>
+  <text x="450" y="52" font-family="'JetBrains Mono',monospace" font-size="11" fill="#2e2450" text-anchor="middle">bhavesh60000@gmail.com  ·  linkedin.com/in/bhavesh-makhija</text>
+  <text x="756" y="52" font-family="monospace" font-size="12" fill="#7c3aed">
+    ▋
+    <animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite"/>
+  </text>
 </svg>
 
 </div>
