@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 212" width="860" height="212">
+  <defs>
+    <linearGradient id="tbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#090d14"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="860" height="212" fill="url(#tbg)" rx="10"/>
+  <rect width="860" height="212" fill="none" stroke="#1e1535" stroke-width="1" rx="10"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="860" height="30" fill="#100a22" rx="10"/>
+  <rect x="0" y="20" width="860" height="10" fill="#100a22"/>
+  <circle cx="20" cy="15" r="4.5" fill="#ff5f57" opacity=".9"/>
+  <circle cx="38" cy="15" r="4.5" fill="#febc2e" opacity=".9"/>
+  <circle cx="56" cy="15" r="4.5" fill="#28c840" opacity=".9"/>
+  <text x="430" y="20" font-family="monospace" font-size="10.5" fill="#4a3a6e" text-anchor="middle">bhavesh.py — ~/profile</text>
+
+  <!-- Line numbers -->
+  <g font-family="'JetBrains Mono','Courier New',monospace" font-size="12.5" fill="#2e2450">
+    <text x="24" y="58">1</text>
+    <text x="24" y="75">2</text>
+    <text x="24" y="92">3</text>
+    <text x="24" y="109">4</text>
+    <text x="24" y="126">5</text>
+    <text x="24" y="143">6</text>
+    <text x="24" y="160">7</text>
+    <text x="24" y="177">8</text>
+    <text x="24" y="194">9</text>
+  </g>
+
+  <!-- Active line highlight -->
+  <rect x="44" y="181" width="772" height="16" fill="#a78bfa" opacity=".05" rx="2"/>
+
+  <!-- Code lines -->
+  <g font-family="'JetBrains Mono','Courier New',monospace" font-size="12.5">
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.1s" fill="freeze"/>
+      <text x="48" y="58" fill="#c4b5fd">bhavesh</text><text x="132" y="58" fill="#94a3b8"> = {</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.5s" fill="freeze"/>
+      <text x="48" y="75" fill="#64748b">    "role"      :</text><text x="206" y="75" fill="#86efac"> "AI/ML Engineer · Full-Stack GenAI Developer"</text><text x="622" y="75" fill="#64748b">,</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="0.9s" fill="freeze"/>
+      <text x="48" y="92" fill="#64748b">    "location"  :</text><text x="206" y="92" fill="#86efac"> "Pune, Maharashtra"</text><text x="364" y="92" fill="#64748b">,</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.3s" fill="freeze"/>
+      <text x="48" y="109" fill="#64748b">    "education" :</text><text x="206" y="109" fill="#86efac"> "B.E. AI &amp; Data Science — CGPA 7.92/10"</text><text x="582" y="109" fill="#64748b">,</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="1.7s" fill="freeze"/>
+      <text x="48" y="126" fill="#64748b">    "focus"     :</text><text x="206" y="126" fill="#fbbf24"> ["RAG", "LLM Eval", "Vector Search", "Doc Intelligence"]</text><text x="697" y="126" fill="#64748b">,</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="2.1s" fill="freeze"/>
+      <text x="48" y="143" fill="#64748b">    "stack"     :</text><text x="206" y="143" fill="#fbbf24"> ["Python", "FastAPI", "LangChain", "FAISS", "React"]</text><text x="672" y="143" fill="#64748b">,</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="2.5s" fill="freeze"/>
+      <text x="48" y="160" fill="#64748b">    "currently" :</text><text x="206" y="160" fill="#86efac"> "Production AI pipelines &amp; LLM applications"</text><text x="617" y="160" fill="#64748b">,</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="2.9s" fill="freeze"/>
+      <text x="48" y="177" fill="#64748b">    "open_to"   :</text><text x="206" y="177" fill="#86efac"> "AI/ML · GenAI · NLP · RAG Systems roles"</text><text x="588" y="177" fill="#64748b">,</text>
+    </g>
+    <g opacity="0"><animate attributeName="opacity" values="0;1" dur="0.3s" begin="3.2s" fill="freeze"/>
+      <text x="48" y="194" fill="#94a3b8">}</text>
+    </g>
+    <text x="66" y="194" font-size="14" fill="#7c3aed">▋<animate attributeName="opacity" values="1;0;1" dur="1s" begin="3.3s" repeatCount="indefinite"/></text>
+  </g>
+</svg>
